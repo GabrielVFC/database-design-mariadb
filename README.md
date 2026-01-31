@@ -1,60 +1,26 @@
-# Sistema de Gerenciamento de Faturas e Produtos
-Este projeto implementa um banco de dados para gerenciar clientes, fornecedores, produtos, faturas e itens de faturas, utilizando o SQLite.
+# Invoice & Product Management System (SQL) 🧾
 
-## Estrutura do Banco de Dados
-O banco de dados contém as seguintes tabelas:
+A robust relational database designed to manage the core operations of a commercial supply chain. This project models the complete flow from suppliers and product inventory to customer invoicing and line-item tracking.
 
-## Cliente
+[Image of an entity-relationship diagram for an invoice and product management system]
 
-Armazena as informações dos clientes.
-Campos:
+### 🚀 Key Technical Features
 
-codCliente: ID único do cliente (PK)
-nome: Nome do cliente
-codArea: Código da área do cliente
-endereco: Endereço do cliente
-telefone: Número de telefone do cliente
+* **Relational Mapping (DDL)**: Implements a multi-table architecture using `PRIMARY KEY` and `FOREIGN KEY` constraints to ensure data consistency between suppliers, products, and invoices.
+* **Transactional Integrity**: Features a specialized `Item` table to handle many-to-many relationships between invoices and products, tracking unit prices and quantities per transaction.
+* **Business Entity Logic**: Segregates data into logical domains (Customers, Suppliers, Products, and Invoices) to minimize redundancy and support scalable queries.
+* **Status Tracking**: Integrated status management for suppliers to monitor active partnerships and supply chain availability.
 
-## Fornecedor
+### 🛠 SQL Operations (CRUD)
+The system is fully equipped with scripts to perform:
+- **Data Insertion (DML)**: Seamlessly onboarding new customers, suppliers, and product catalogs.
+- **Relational Querying (DQL)**: Generating detailed invoice reports by joining customer profiles with transactional line items.
+- **Inventory Management**: Tracking product cost prices and supplier associations.
 
-Armazena as informações dos fornecedores.
-Campos:
+### 💻 Tech Stack
+- **Database Engine:** SQLite
+- **Languages:** SQL (DDL, DML, DQL)
+- **Domain:** Inventory Management, Invoicing Systems, Relational Modeling.
 
-codFornecedor: ID único do fornecedor (PK)
-nome: Nome do fornecedor
-email: E-mail do fornecedor
-telefone: Número de telefone do fornecedor
-status: Status do fornecedor (ativo ou inativo)
-
-## Produto
-
-Armazena as informações dos produtos fornecidos.
-Campos:
-
-codProduto: ID único do produto (PK)
-descricao: Descrição do produto
-precoCusto: Preço de custo do produto
-codFornecedor: ID do fornecedor do produto (FK)
-
-## Fatura
-
-Armazena as informações das faturas emitidas.
-Campos:
-
-codFatura: ID único da fatura (PK)
-codCliente: ID do cliente associado à fatura (FK)
-data: Data da fatura
-
-## Item
-
-Armazena os itens contidos nas faturas.
-Campos:
-
-codFatura: ID da fatura associada (FK)
-codProduto: ID do produto associado à fatura (FK)
-valorUnitario: Valor unitário do produto na fatura
-quantidade: Quantidade do produto na fatura
-Execute o código para criar as tabelas.
-Utilização:
-
-Você pode agora adicionar, atualizar, consultar e excluir dados nas tabelas Cliente, Fornecedor, Produto, Fatura e Item conforme necessário, utilizando comandos SQL.
+---
+*Note: This project showcases my proficiency in relational database architecture for commercial applications. I am currently scaling these SQL foundations into Go (Golang) back-end services with PostgreSQL and Docker.*
